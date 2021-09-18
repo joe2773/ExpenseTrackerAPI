@@ -6311,11 +6311,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joe/Desktop/ExpenseTracker/ExpenseTracker.csproj",
+      "projectUniqueName": "/Users/joe/Desktop/ExpenseTrackerAPI/ExpenseTracker.csproj",
       "projectName": "ExpenseTracker",
-      "projectPath": "/Users/joe/Desktop/ExpenseTracker/ExpenseTracker.csproj",
+      "projectPath": "/Users/joe/Desktop/ExpenseTrackerAPI/ExpenseTracker.csproj",
       "packagesPath": "/Users/joe/.nuget/packages/",
-      "outputPath": "/Users/joe/Desktop/ExpenseTracker/obj/",
+      "outputPath": "/Users/joe/Desktop/ExpenseTrackerAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/joe/.nuget/NuGet/NuGet.Config"
