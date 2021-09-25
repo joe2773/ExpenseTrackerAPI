@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mSyhvNhuNDAJp3eJMX5wGW+ZsqgvWm+EAicRPrgP7IY5jNIaQY3tCh+wvMs5d85pHiejr2Pk07/5EZK6Bg+qNA==",
+  "dgSpecHash": "zNCO8mQ6gAXYgRpCIx3jAF8Sc14JS5chqdcH7ZBybwBXv4ljiq6d7GiEwx0QQSY7oJPHHAk9x5VMM65wj/WOgQ==",
   "success": true,
-  "projectFilePath": "/Users/joe/Desktop/ExpenseTracker/ExpenseTracker.csproj",
+  "projectFilePath": "/Users/joe/Desktop/ExpenseTrackerAPI/ExpenseTracker.csproj",
   "expectedPackageFiles": [
     "/Users/joe/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/joe/.nuget/packages/microsoft.aspnet.webapi.client/5.2.6/microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",

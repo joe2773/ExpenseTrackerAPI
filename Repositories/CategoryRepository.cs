@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Model;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ExpenseTracker.Repositories {
 
@@ -20,12 +20,24 @@ namespace ExpenseTracker.Repositories {
                 .FirstOrDefault();
         }
 
+        public List<Category> GetAllCategories(){
+            return db.Categories
+                .ToList();
+        }
+        
+        public void DeleteAllCategories(){
+            var dataToDelete = db.Categories.Where(t => t.Id > 0);
+            foreach( var data in dataToDelete){
+                db.Remove(data);
+            }
+            db.SaveChanges();
+        }
+
         public Category AddCategory(Category category) {
             db.Add(category);
             db.SaveChanges();
 
             return this.GetCategoryByName(category.Name);
-
         }
     }
 }

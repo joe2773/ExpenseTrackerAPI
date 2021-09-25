@@ -6,7 +6,6 @@ using ExpenseTracker.Repositories;
 namespace ExpenseTracker.Services {
 
     public class TransactionService {
-        private readonly TransactionContext db = new TransactionContext();
         private readonly TransactionRepository _transactionRepo = new TransactionRepository();
         private readonly CategoryRepository _categoryRepo = new CategoryRepository();
         
