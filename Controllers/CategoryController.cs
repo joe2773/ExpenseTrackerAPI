@@ -5,7 +5,7 @@ using ExpenseTracker.Model;
 
 namespace ExpenseTracker.Controllers {
     [ApiController]
-    [Route("transactions")]
+    [Route("categories")]
     public class CategoryController : ControllerBase
     {
         private readonly CategoryService categoryService = new CategoryService();
@@ -15,8 +15,12 @@ namespace ExpenseTracker.Controllers {
             return categoryService.GetAllCategories();
         }
         [HttpPost]
-        public void AddCategory(Category category){
-            categoryService.AddCategory(category);
+        public ActionResult AddCategory(Category category){
+            if(categoryService.AddCategory(category) != null){
+                return Ok();
+            } else {
+                return BadRequest("Category with name: "+category.Name + " already exists");
+            }
         }
         [HttpDelete]
         public void DeleteAllCategories(){

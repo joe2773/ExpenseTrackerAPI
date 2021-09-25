@@ -12,8 +12,13 @@ namespace ExpenseTracker.Services {
             return _categoryRepo.GetAllCategories();
         }
 
-        public void AddCategory(Category category){
-            _categoryRepo.AddCategory(category);
+        public Category AddCategory(Category category){
+            if(_categoryRepo.GetCategoryByName(category.Name) == null){
+                _categoryRepo.AddCategory(category);
+                return category;
+            } else {
+                return null;
+            }
         }
 
         public void DeleteAllCategories(){
