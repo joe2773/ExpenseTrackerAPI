@@ -21,8 +21,8 @@ namespace ExpenseTracker.Controllers {
         }    
     
         [HttpPost]
-        public void AddTransaction(Transaction transaction){
-            transactionService.AddTransaction(transaction);
+        public void AddTransaction(List<Transaction> transactions){
+            transactionService.AddTransactions(transactions);
         }
 
         [HttpDelete]

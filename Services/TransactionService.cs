@@ -44,22 +44,21 @@ namespace ExpenseTracker.Services {
             return this._transactionRepo.GetByCategoryInPriceOrder(categoryName,ascending).ToList();
         }
     
-        public void AddTransaction(Transaction transaction) {
-            if(this.GetCategoryByName(transaction.CategoryName) != null){
-                transaction.CategoryId = this.GetCategoryByName(transaction.CategoryName).Id;
-                _transactionRepo.Add(transaction);
-            } else {
-                Category categoryToAdd = new Category{Name = transaction.CategoryName};
-                transaction.CategoryId = this._categoryRepo.AddCategory(categoryToAdd).Id;
-                _transactionRepo.Add(transaction);
-            }
-            
+        public void AddTransactions(List<Transaction> transactions) {
+            _transactionRepo.Add(transactions);
         }
 
         public Category GetCategoryByName(string categoryName) {
             if(this._categoryRepo.GetCategoryByName(categoryName) != null) {
                 return this._categoryRepo.GetCategoryByName(categoryName);
             } 
+            return null;
+        }
+
+        public Category GetCategoryById(int categoryId) {
+             if(this._categoryRepo.GetCategoryById(categoryId) != null) {
+                return this._categoryRepo.GetCategoryById(categoryId);
+            }
             return null;
         }
         public void DeleteAllTransactions(){

@@ -5,7 +5,7 @@ using ExpenseTracker.Model;
 
 namespace ExpenseTracker.Controllers {
     [ApiController]
-    [Route("transactions")]
+    [Route("categories")]
     public class CategoryController : ControllerBase
     {
         private readonly CategoryService categoryService = new CategoryService();
