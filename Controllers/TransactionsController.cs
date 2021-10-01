@@ -11,9 +11,9 @@ namespace ExpenseTracker.Controllers {
         private readonly TransactionService transactionService = new TransactionService();
         
         [HttpGet]
-        public ActionResult<List<Transaction>> GetTransactions(string categoryName,string orderBy, bool ascending){
-            if(categoryName != null || orderBy != null){
-                return transactionService.SearchTransactions(categoryName,orderBy,ascending);
+        public ActionResult<List<Transaction>> GetTransactions(string categoryName,string sortOrder){
+            if(categoryName != null || sortOrder != null){
+                return transactionService.SearchTransactions(categoryName,sortOrder);
             } else {
                 return transactionService.GetAllTransactions();
             }
