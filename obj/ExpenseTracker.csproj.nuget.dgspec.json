@@ -38,6 +38,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNet.WebApi.OwinSelfHost": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.AspNetCore.Mvc.WebApiCompatShim": {
               "target": "Package",
               "version": "[2.2.0, )"

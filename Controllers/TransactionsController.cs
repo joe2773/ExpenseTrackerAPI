@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using ExpenseTracker.Services;
 using ExpenseTracker.Model;
-
+using System.Web.Http.Cors;
 namespace ExpenseTracker.Controllers {
     [ApiController]
     [Route("transactions")]
+    
     public class TransactionsController : ControllerBase
     {
         private readonly TransactionService transactionService = new TransactionService();

@@ -11,7 +11,16 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
+      "Microsoft.AspNet.Cors/5.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Web.Cors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Cors.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Client/5.2.7": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "10.0.1",
@@ -22,6 +31,53 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.7"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Cors/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Cors": "5.2.7",
+          "Microsoft.AspNet.WebApi.Core": "[5.2.7, 5.3.0)"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Cors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Cors.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Owin/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "[5.2.7, 5.3.0)",
+          "Microsoft.Owin": "2.0.2",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Owin.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.OwinSelfHost/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Owin": "[5.2.7, 5.3.0)",
+          "Microsoft.Owin.Host.HttpListener": "2.0.2",
+          "Microsoft.Owin.Hosting": "2.0.2"
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -607,6 +663,40 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Owin/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Host.HttpListener/2.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.Owin.Host.HttpListener.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Host.HttpListener.dll": {}
+        }
+      },
+      "Microsoft.Owin.Hosting/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "2.0.2",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Hosting.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Hosting.dll": {}
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -687,6 +777,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -1947,10 +2046,22 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNet.WebApi.Client/5.2.6": {
-      "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
+    "Microsoft.AspNet.Cors/5.2.7": {
+      "sha512": "r7qTj8SKzHT32F2mbB3qgE+6VUd2xILkGaq4LtMW+KP3dDAQmI//j+8Ku01I3D1GKZvB9PU8HTJPkaw7sxSLtQ==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi.client/5.2.6",
+      "path": "microsoft.aspnet.cors/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Web.Cors.dll",
+        "microsoft.aspnet.cors.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.cors.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "sha512": "/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.client/5.2.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1960,8 +2071,59 @@
         "lib/netstandard2.0/System.Net.Http.Formatting.xml",
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
         "microsoft.aspnet.webapi.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.7": {
+      "sha512": "gM2QzApnHdy1FbKUJ/ROGJSm69P2G+HMoVd/t5Vq1O/zZ5TI4IKC9PX6nUfRt/NHgebZOIWHpB4/4K4inuy4yQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.core/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/web.config.transform",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml",
+        "microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Cors/5.2.7": {
+      "sha512": "LUY5ufoiYLHKZXdrrNe7GlAwmu9WlyrX5iUtBSLwFZ31/tvPobyU7j1E31OWVdGZMBvRCxKbfyB7unxgrjTRpA==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.cors/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Web.Http.Cors.dll",
+        "lib/net45/System.Web.Http.Cors.xml",
+        "microsoft.aspnet.webapi.cors.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.cors.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Owin/5.2.7": {
+      "sha512": "Zb/qw8TyMgQi3CfmIWRmfOh89LozKzOJT6EwnY1D1aUjBCms8WXfvrRusc44hEODD7KUPBJLOEJLCx1yT4vMTg==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.owin/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Web.Http.Owin.dll",
+        "lib/net45/System.Web.Http.Owin.xml",
+        "microsoft.aspnet.webapi.owin.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.owin.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.OwinSelfHost/5.2.7": {
+      "sha512": "3Q4dY/LxrsLXgvepAtMGQAW15mjakd+Qx0PMsX/7QOt5BwuHToTmXqzGBKJXv1WHs4hJu+pcx3oSJgBQin1TKw==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.owinselfhost/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "microsoft.aspnet.webapi.owinselfhost.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.owinselfhost.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -2712,6 +2874,51 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Owin/2.0.2": {
+      "sha512": "WVBkCUzmzuBJbOFSfonVLcErTaj0w0NLTwAFR6NB8K6L4099NdvtSBO29JlLQ+Dzkkr5tgvXdcb++mEijBlhpg==",
+      "type": "package",
+      "path": "microsoft.owin/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Owin.XML",
+        "lib/net40/Microsoft.Owin.dll",
+        "lib/net45/Microsoft.Owin.XML",
+        "lib/net45/Microsoft.Owin.dll",
+        "microsoft.owin.2.0.2.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Host.HttpListener/2.0.2": {
+      "sha512": "FvjlLadWzpKE2fZeHoa/d1krcVQ7U5/+D+HC3KL+v+jYyvFsFIobtROX0bTgqWkFYdhS3+AWveck63m4LE6SuA==",
+      "type": "package",
+      "path": "microsoft.owin.host.httplistener/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Owin.Host.HttpListener.dll",
+        "lib/net40/Microsoft.Owin.Host.HttpListener.xml",
+        "lib/net45/Microsoft.Owin.Host.HttpListener.dll",
+        "lib/net45/Microsoft.Owin.Host.HttpListener.xml",
+        "microsoft.owin.host.httplistener.2.0.2.nupkg.sha512",
+        "microsoft.owin.host.httplistener.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Hosting/2.0.2": {
+      "sha512": "FH94pnDTejmN+VicQEKYl6J6L4wMSlDYY61Yykhsc7ruJVUIP2wrts67vkyalbHcqaGNCdpYsChd7IOpXUcDzQ==",
+      "type": "package",
+      "path": "microsoft.owin.hosting/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Owin.Hosting.XML",
+        "lib/net40/Microsoft.Owin.Hosting.dll",
+        "lib/net45/Microsoft.Owin.Hosting.XML",
+        "lib/net45/Microsoft.Owin.Hosting.dll",
+        "microsoft.owin.hosting.2.0.2.nupkg.sha512",
+        "microsoft.owin.hosting.nuspec"
+      ]
+    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "sha512": "9ZQKCWxH7Ijp9BfahvL2Zyf1cJIk8XYLF6Yjzr2yi0b2cOut/HQ31qf1ThHAgCc3WiZMdnWcfJCgN82/0UunxA==",
       "type": "package",
@@ -2806,6 +3013,18 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Owin/1.0.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6300,6 +6519,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
+      "Microsoft.AspNet.WebApi.OwinSelfHost >= 5.2.7",
       "Microsoft.AspNetCore.Mvc.WebApiCompatShim >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.6"
@@ -6342,6 +6563,14 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Microsoft.AspNet.WebApi.Cors": {
+            "target": "Package",
+            "version": "[5.2.7, )"
+          },
+          "Microsoft.AspNet.WebApi.OwinSelfHost": {
+            "target": "Package",
+            "version": "[5.2.7, )"
+          },
           "Microsoft.AspNetCore.Mvc.WebApiCompatShim": {
             "target": "Package",
             "version": "[2.2.0, )"
@@ -6378,5 +6607,87 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Owin 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 2.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Host.HttpListener 2.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Host.HttpListener",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Hosting 2.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Hosting",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

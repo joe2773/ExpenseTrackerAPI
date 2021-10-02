@@ -130,3 +130,11 @@
 /Users/joe/Desktop/ExpenseTrackerAPI/obj/Debug/netcoreapp3.1/ExpenseTracker.dll
 /Users/joe/Desktop/ExpenseTrackerAPI/obj/Debug/netcoreapp3.1/ExpenseTracker.pdb
 /Users/joe/Desktop/ExpenseTrackerAPI/obj/Debug/netcoreapp3.1/ExpenseTracker.genruntimeconfig.cache
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/System.Web.Cors.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/System.Web.Http.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/System.Web.Http.Cors.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/System.Web.Http.Owin.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/Microsoft.Owin.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/Microsoft.Owin.Host.HttpListener.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/Microsoft.Owin.Hosting.dll
+/Users/joe/Desktop/ExpenseTrackerAPI/bin/Debug/netcoreapp3.1/Owin.dll

@@ -31,6 +31,8 @@
     ".NETCoreApp,Version=v3.1": {
       "ExpenseTracker/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.WebApi.Cors": "5.2.7",
+          "Microsoft.AspNet.WebApi.OwinSelfHost": "5.2.7",
           "Microsoft.AspNetCore.Mvc.WebApiCompatShim": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.6",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.6",
@@ -318,19 +320,82 @@
           }
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
+      "Microsoft.AspNet.Cors/5.2.7": {
+        "runtime": {
+          "lib/net45/System.Web.Cors.dll": {
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Cors.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Client/5.2.7": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
           "Newtonsoft.Json.Bson": "1.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/System.Net.Http.Formatting.dll": {
-            "assemblyVersion": "5.2.6.0",
-            "fileVersion": "5.2.60510.0"
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.7"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Cors/5.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.Cors": "5.2.7",
+          "Microsoft.AspNet.WebApi.Core": "5.2.7"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Cors.dll": {
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Cors.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Owin/5.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.7",
+          "Microsoft.Owin": "2.0.2",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Owin.dll": {
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Owin.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.OwinSelfHost/5.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Owin": "5.2.7",
+          "Microsoft.Owin.Host.HttpListener": "2.0.2",
+          "Microsoft.Owin.Hosting": "2.0.2"
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -448,7 +513,7 @@
       },
       "Microsoft.AspNetCore.Mvc.WebApiCompatShim/2.2.0": {
         "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.6",
+          "Microsoft.AspNet.WebApi.Client": "5.2.7",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.2.0",
           "Microsoft.AspNetCore.WebUtilities": "2.2.0"
@@ -761,6 +826,46 @@
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Owin/2.0.2": {
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.21107.459"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Host.HttpListener/2.0.2": {
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Host.HttpListener.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.21107.459"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Host.HttpListener.dll": {}
+        }
+      },
+      "Microsoft.Owin.Hosting/2.0.2": {
+        "dependencies": {
+          "Microsoft.Owin": "2.0.2",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Hosting.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.21107.459"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Hosting.dll": {}
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -840,6 +945,17 @@
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "runtime": {
+          "lib/net40/Owin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -3225,12 +3341,47 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
-    "Microsoft.AspNet.WebApi.Client/5.2.6": {
+    "Microsoft.AspNet.Cors/5.2.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
-      "path": "microsoft.aspnet.webapi.client/5.2.6",
-      "hashPath": "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512"
+      "sha512": "sha512-r7qTj8SKzHT32F2mbB3qgE+6VUd2xILkGaq4LtMW+KP3dDAQmI//j+8Ku01I3D1GKZvB9PU8HTJPkaw7sxSLtQ==",
+      "path": "microsoft.aspnet.cors/5.2.7",
+      "hashPath": "microsoft.aspnet.cors.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
+      "path": "microsoft.aspnet.webapi.client/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gM2QzApnHdy1FbKUJ/ROGJSm69P2G+HMoVd/t5Vq1O/zZ5TI4IKC9PX6nUfRt/NHgebZOIWHpB4/4K4inuy4yQ==",
+      "path": "microsoft.aspnet.webapi.core/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Cors/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LUY5ufoiYLHKZXdrrNe7GlAwmu9WlyrX5iUtBSLwFZ31/tvPobyU7j1E31OWVdGZMBvRCxKbfyB7unxgrjTRpA==",
+      "path": "microsoft.aspnet.webapi.cors/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.cors.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Owin/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zb/qw8TyMgQi3CfmIWRmfOh89LozKzOJT6EwnY1D1aUjBCms8WXfvrRusc44hEODD7KUPBJLOEJLCx1yT4vMTg==",
+      "path": "microsoft.aspnet.webapi.owin/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.owin.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.OwinSelfHost/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Q4dY/LxrsLXgvepAtMGQAW15mjakd+Qx0PMsX/7QOt5BwuHToTmXqzGBKJXv1WHs4hJu+pcx3oSJgBQin1TKw==",
+      "path": "microsoft.aspnet.webapi.owinselfhost/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.owinselfhost.5.2.7.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
       "type": "package",
@@ -3547,6 +3698,27 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
+    "Microsoft.Owin/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WVBkCUzmzuBJbOFSfonVLcErTaj0w0NLTwAFR6NB8K6L4099NdvtSBO29JlLQ+Dzkkr5tgvXdcb++mEijBlhpg==",
+      "path": "microsoft.owin/2.0.2",
+      "hashPath": "microsoft.owin.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.Owin.Host.HttpListener/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FvjlLadWzpKE2fZeHoa/d1krcVQ7U5/+D+HC3KL+v+jYyvFsFIobtROX0bTgqWkFYdhS3+AWveck63m4LE6SuA==",
+      "path": "microsoft.owin.host.httplistener/2.0.2",
+      "hashPath": "microsoft.owin.host.httplistener.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.Owin.Hosting/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FH94pnDTejmN+VicQEKYl6J6L4wMSlDYY61Yykhsc7ruJVUIP2wrts67vkyalbHcqaGNCdpYsChd7IOpXUcDzQ==",
+      "path": "microsoft.owin.hosting/2.0.2",
+      "hashPath": "microsoft.owin.hosting.2.0.2.nupkg.sha512"
+    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3574,6 +3746,13 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "Owin/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "path": "owin/1.0.0",
+      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
