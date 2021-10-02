@@ -52,14 +52,6 @@ namespace ExpenseTracker.Repositories {
             db.Add(transaction);
             db.SaveChanges();
         }
-
-        public void Add(List<Transaction> transactions){
-            foreach(Transaction transaction in transactions){
-                db.Add(transactions);
-            }
-            db.SaveChanges();
-        }
-
         public void DeleteAll(){
             var dataToDelete = db.Transactions.Where(t => t.Id > 0);
             foreach( var data in dataToDelete){

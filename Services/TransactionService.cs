@@ -9,21 +9,19 @@ namespace ExpenseTracker.Services {
         private readonly TransactionRepository _transactionRepo = new TransactionRepository();
         private readonly CategoryRepository _categoryRepo = new CategoryRepository();
         
-        public List<Transaction> SearchTransactions(string categoryName, string orderBy, bool ascending){ 
-            switch(orderBy){
-                case("price"):
-                    return categoryName != null ? GetByCategoryInPriceOrder(categoryName,ascending) : GetAllInPriceOrder(ascending);
+        private readonly TransactionContext db = new TransactionContext();
+        public List<Transaction> SearchTransactions(string categoryName, string sortOrder){
+            var searchQuery = this.BuildSearchQuery(categoryName,sortOrder);
+            return searchQuery.ToList();
+        }
 
-                case("category"):
-                    return GetAllInCategoryOrder(ascending);
+        private IQueryable<Transaction> BuildSearchQuery(string categoryName, string sortOrder) {
+            IQueryable<Transaction> searchQuery = db.Transactions;
 
-                default: 
-                    if(categoryName != null){
-                        return GetAllByCategory(categoryName);
-                    }
-                    return GetAllTransactions();
-                    
-            }
+            searchQuery = this.AddCategoryFilter(searchQuery,categoryName);
+            searchQuery = this.AddOrderFilter(searchQuery,sortOrder);
+            return searchQuery;
+            
         }
         public List<Transaction> GetAllTransactions(){
             return _transactionRepo.GetAll().ToList();
@@ -33,19 +31,52 @@ namespace ExpenseTracker.Services {
             return _transactionRepo.GetAllByCategory(categoryName).ToList();
         }
 
-        public List<Transaction> GetAllInPriceOrder(bool ascending){
-            return this._transactionRepo.GetAllInPriceOrder(ascending).ToList();
-        }
-        public List<Transaction> GetAllInCategoryOrder(bool ascending){
-            return this._transactionRepo.GetAllInCategoryOrder(ascending).ToList();
+        private IQueryable<Transaction> AddCategoryFilter(IQueryable<Transaction> searchQuery, string categoryName){
+            if(categoryName != null){
+                return searchQuery
+                .Where(t => t.CategoryName == categoryName);
+            }
+            return searchQuery;
         }
 
-        public List<Transaction> GetByCategoryInPriceOrder(string categoryName, bool ascending) {
-            return this._transactionRepo.GetByCategoryInPriceOrder(categoryName,ascending).ToList();
+        private IQueryable<Transaction> AddOrderFilter(IQueryable<Transaction> searchQuery, string sortOrder){
+            if(sortOrder != null){
+                switch(sortOrder){
+                    case "priceAsc" :
+                        searchQuery = searchQuery
+                        .OrderBy(t => t.Amount);
+                        break;
+                    
+                    case "priceDesc" :
+                        searchQuery = searchQuery
+                        .OrderByDescending(t => t.Amount);
+                        break;
+                    
+                    case "categoryAsc" :
+                        searchQuery = searchQuery
+                        .OrderBy(t => t.CategoryName);
+                        break;  
+                        
+                    case "categoryDesc" :
+                        searchQuery = searchQuery
+                        .OrderByDescending(t => t.CategoryName);
+                        break;
+                        
+                    default :
+                        break;
+                }
+            }
+            return searchQuery;
         }
     
         public void AddTransactions(List<Transaction> transactions) {
-            _transactionRepo.Add(transactions);
+            foreach(Transaction transaction in transactions){
+                Category category = _categoryRepo.GetCategoryById(transaction.CategoryId);
+                if(category != null){
+                    transaction.CategoryName = category.Name;
+                    _transactionRepo.Add(transaction);
+                }
+            }
         }
 
         public Category GetCategoryByName(string categoryName) {
